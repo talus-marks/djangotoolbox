@@ -11,8 +11,9 @@ from django.db.backends import (
     BaseDatabaseIntrospection)
 from django.db.utils import DatabaseError
 from django.utils.functional import Promise
-from django.utils.safestring import EscapeString, EscapeUnicode, SafeString, \
-    SafeUnicode
+#from django.utils.safestring import EscapeString, EscapeUnicode, SafeString, \
+#    SafeUnicode
+from django.utils.safestring import EscapeString, SafeString
 from django.utils import timezone
 
 from .creation import NonrelDatabaseCreation
@@ -661,7 +662,7 @@ class FakeConnection(object):
 
 
 class Database(object):
-    class Error(StandardError):
+    class Error(Exception):#StandardError):
         pass
 
     class InterfaceError(Error):
